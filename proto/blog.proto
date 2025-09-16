@@ -15,7 +15,24 @@ service Blog {
   rpc updateArticle (UpdateArticleRequest) returns (UpdateArticleResponse);
 }
 
-message GetAllArticlesRequest {}
+message GetAllArticlesRequest {
+  // Only returns articles where the author is in this list
+  // If empty, no author filtering is applied
+  repeated string authors_filter = 1;
+
+  message TimeFilter {
+    google.protobuf.Timestamp start = 1;
+    google.protobuf.Timestamp end = 2;
+  }
+
+  // Only returns articles created within this time range
+  // If not set, no time filtering is applied
+  TimeFilter time_filter = 2;
+
+  // Only returns articles where the title or content contains any of these strings
+  // If empty, no text filtering is applied
+  repeated string text_search = 3;
+}
 
 message GetAllArticlesResponse {
   repeated Article articles = 1;

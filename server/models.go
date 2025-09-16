@@ -2,7 +2,7 @@ package server
 
 import "go.mongodb.org/mongo-driver/bson/primitive"
 
-// ArticleModel represents the MongoDB structure for an article
+// MongoDB structure for an article
 type ArticleModel struct {
 	ID        primitive.ObjectID `bson:"_id,omitempty"`
 	Title     string             `bson:"title"`
