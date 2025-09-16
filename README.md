@@ -2,6 +2,16 @@
 
 An implementation of an API that can power a personal blog.
 
+## Operations
+
+RPC | Description
+--|--
+getAllArticles | Retrieve all articles or a list of filtered articles. Articles can be filtered by creation time, author and text search on the article's title and content.
+getArticle | Retrieve an article by it's ID
+createArticle | Create an article
+deleteArticle | Delete an article
+updateArticle | Update an article
+
 # Build protos
 
 Generate the proto files using one of the following commands:
